@@ -1,0 +1,13 @@
+<?php echo PHP_EOL.PHP_EOL; ?>
+----------------------------------------------
+<?php echo PHP_EOL; ?>
+<?php foreach($this->contactData as $key => $value){
+    if($key == "organisationName") {
+        echo $value.PHP_EOL;
+    }else{
+        echo ucfirst($key) . " : " . $value.PHP_EOL;
+    }
+} ?>
+<?php echo PHP_EOL; ?>
+----------------------------------------------
+<?php echo PHP_EOL; ?>
