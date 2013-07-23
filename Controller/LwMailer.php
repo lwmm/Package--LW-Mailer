@@ -161,22 +161,12 @@ class LwMailer
      * @return boolean
      */
     private function existsLogDir()
-    {
-        $configLogDir = str_replace("/", "", $this->mailConfig["mailDebugLogDir"]);
-        
-        $directoryObject = \lw_directory::getInstance($this->config['path']['web_resource'] . 'lw_logs/');
-        $directories = $directoryObject->getDirectoryContents("dir");
+    {       
+        $configLogDir = $this->config['path']['web_resource'].'lw_logs/'.str_replace("//", "", $this->mailConfig["mailDebugLogDir"]);
 
-        $bool = false;
-        if (!empty($directories)) {
-            foreach ($directories as $dir) {
-                if ($dir->getName() == $configLogDir."/") {
-                    $bool = true;
-                }
-            }
-        }
-        if (!$bool) {
-            $directoryObject->add($configLogDir);
+        if (!is_dir($configLogDir)) {
+            mkdir($configLogDir);
+            chmod($configLogDir,0775);
         }
 
         return true;
