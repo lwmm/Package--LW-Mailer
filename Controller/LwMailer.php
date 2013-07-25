@@ -20,10 +20,16 @@ class LwMailer
         $this->config = $config;
     }
     
-    public function setMailType($type)
+    public function setMailTypeDebug()
     {
-        $this->mailConfig["mailType"] = $type;
+        $this->mailConfig["mailType"] = "debug";
     }
+
+    public function setMailConfigEntryByKey($key, $value)
+    {
+        $this->mailConfig[$key] = $key;
+    }
+
 
     /**
      * Sending Type by $sendMailType param.
@@ -161,8 +167,8 @@ class LwMailer
      * @return boolean
      */
     private function existsLogDir()
-    {       
-        $configLogDir = $this->config['path']['web_resource'].'lw_logs/'.str_replace("//", "", $this->mailConfig["mailDebugLogDir"]);
+    {
+        $configLogDir = $this->config['path']['web_resource'].'lw_logs/'.str_replace("/", "", $this->mailConfig["mailDebugLogDir"]);
 
         if (!is_dir($configLogDir)) {
             mkdir($configLogDir);
