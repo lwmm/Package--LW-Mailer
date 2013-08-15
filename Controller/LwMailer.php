@@ -201,7 +201,7 @@ class LwMailer
     mailDebugLogFile            = "log.txt"
     from                        = ""
     replyTo                     = ""
-    subjectPrefix               = ""    #z.b. Anihwa Call - 
+    subjectPrefix               = ""    
     username                    = ""
     password                    = ""
     server                      = ""
