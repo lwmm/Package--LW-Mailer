@@ -1,4 +1,5 @@
 <?php
+namespace LwMailer\Views;
 
 class SignatureView
 {

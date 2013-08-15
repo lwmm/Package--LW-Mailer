@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__).'/../Views/SignatureView.php');
+namespace LwMailer\Controller;
 
 /**
  * Mailer Class to use only one function call but via config different
@@ -153,7 +153,7 @@ class LwMailer
     private function buildSignature()
     {
         if(is_array($this->mailConfig["contact"])){
-            $view = new SignatureView();
+            $view = new \LwMailer\Views\SignatureView();
             return $view->render($this->mailConfig["contact"]);
         }
         
