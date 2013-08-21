@@ -152,7 +152,7 @@ class LwMailer
      */
     private function buildSignature()
     {
-        if(is_array($this->mailConfig["contact"])){
+        if($this->mailConfig["addSignature"]){
             $view = new \LwMailer\Views\SignatureView();
             return $view->render($this->mailConfig["contact"]);
         }
@@ -207,6 +207,7 @@ class LwMailer
     server                      = ""
     port                        = ""
     ssl                         = ""
+    addSignature                = ""
     contact[organisationName]   = ""
     contact[name]               = ""
     contact[phone]              = ""
